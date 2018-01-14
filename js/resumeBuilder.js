@@ -194,7 +194,7 @@ Projects.display = function() {
 
   }
 
-}
+};
 
 Projects.display();
 
