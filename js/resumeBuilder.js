@@ -42,11 +42,11 @@ var work = {
 var projects = {
 
     "projects": [{
-        "name": "SDC webpage",
-        "info": "a website for a group could SDC",
+        "title": "SDC webpage",
+        "description": "a website for a group could SDC",
         "url": "www.SDC-au.com",
-        "date": "2017",
-        "img": "images/Screen Shot 2018-01-12 at 4.50.24 AM.png"
+        "dates": "2017",
+        "images": ["images/Screen Shot 2018-01-12 at 4.50.24 AM.png"]
     }]
 
 };
@@ -127,9 +127,9 @@ bio.display = function() {
         //  $("#skills").append(skill);
 
 
-        for (var ski = 0; ski < bio.skills.length; ski++) {
-            skill = HTMLskills.replace("%data%", bio.skills[ski]);
-            $("#skills").append(skill);
+        for (var skill = 0; skill < bio.skills.length; skill++) {
+            var skillfor = HTMLskills.replace("%data%", bio.skills[skill]);
+            $("#skills").append(skillfor);
         }
     }
     //enable Contacts
@@ -177,17 +177,18 @@ projects.display = function() {
     for (var proj = 0; proj < projects.projects.length; proj++) {
         $("#projects").append(HTMLprojectStart);
 
-        var projname = HTMLprojectTitle.replace("%data%", projects.projects[proj].name);
+        var projname = HTMLprojectTitle.replace("%data%", projects.projects[proj].title);
         $(".project-entry:last").append(projname);
 
-        var projdate = HTMLprojectDates.replace("%data%", projects.projects[proj].date);
+        var projdate = HTMLprojectDates.replace("%data%", projects.projects[proj].dates);
         $(".project-entry:last").append(projdate);
 
-        var projdis = HTMLprojectDescription.replace("%data%", projects.projects[proj].info);
+        var projdis = HTMLprojectDescription.replace("%data%", projects.projects[proj].description);
         $(".project-entry:last").append(projdis);
-
-        var projpic = HTMLprojectImage.replace("%data%", projects.projects[proj].img);
+for(var i=0 ; i< projects.projects[proj].images.length;i++){
+        var projpic = HTMLprojectImage.replace("%data%", projects.projects[proj].images[i]);
         $(".project-entry:last").append(projpic);
+      }
 
     }
 
